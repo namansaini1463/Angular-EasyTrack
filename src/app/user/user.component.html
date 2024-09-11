@@ -1,0 +1,9 @@
+<div>
+  <!--` Adding event listener to the component-->
+  <button (click)="onSelectUser()">
+    <!--` Using property binding -->
+    <img [src]="userImagePath" [alt]="selectedUser.name" />
+    <!--` Using string interpolation -->
+    <span>{{ selectedUser.name }}</span>
+  </button>
+</div>
