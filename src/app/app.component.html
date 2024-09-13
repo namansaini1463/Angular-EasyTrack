@@ -2,8 +2,43 @@
 
 <main>
   <ul id="users">
+    @for (user of users; track user.id) {
     <li>
-      <app-user />
+      <app-user
+        [user]="user"
+        [selected]="user.id === selectedUserId"
+        (selectUser)="onSelectUser($event)"
+      />
     </li>
+    }
   </ul>
+  @if (selectedUser) {
+  <app-tasks [name]="selectedUser.name" [userId]="selectedUser.id" />
+  } @else {
+  <p id="Fallback">Please select a user to see their tasks</p>
+  }
 </main>
+
+<!-- ` Legacy for loop in angular -->
+<!--? <li *ngFor="let user of users">
+      <app-user [user]="user" (selectUser)="onSelectUser($event)" />
+    </li> -->
+
+<!-- <li>
+      <app-user [user]="users[0]" (selectUser)="onSelectUser($event)" />
+    </li>
+    <li>
+      <app-user [user]="users[1]" (selectUser)="onSelectUser($event)" />
+    </li>
+    <li>
+      <app-user [user]="users[2]" (selectUser)="onSelectUser($event)" />
+    </li>
+    <li>
+      <app-user [user]="users[3]" (selectUser)="onSelectUser($event)" />
+    </li> -->
+
+<!--` Legacy if in angular -->
+<!--? <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser!.name" />
+  <ng-template #fallback>
+    <p id="Fallback">Please select a user to see their tasks</p>
+  </ng-template> -->

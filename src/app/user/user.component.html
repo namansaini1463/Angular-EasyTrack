@@ -1,9 +1,9 @@
 <div>
-  <!--` Adding event listener to the component-->
-  <button (click)="onSelectUser()">
+  <!--` Adding event listener to the component and dynamically adding classes to the html element-->
+  <button [class.active]="selected" (click)="onSelectUser()">
     <!--` Using property binding -->
-    <img [src]="userImagePath" [alt]="selectedUser.name" />
+    <img [src]="userImagePath" [alt]="user.name" />
     <!--` Using string interpolation -->
-    <span>{{ selectedUser.name }}</span>
+    <span>{{ user.name }}</span>
   </button>
 </div>
